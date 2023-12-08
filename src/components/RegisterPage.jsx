@@ -2,7 +2,7 @@ import React from "react";
 import CoverBg from "../img/kantek-1.jpg";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const RegisterPage = () => {
     return(
         <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
             <div className="bg-gray-800 flex flex-col justify-center">
@@ -42,4 +42,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default RegisterPage;

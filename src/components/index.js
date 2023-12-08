@@ -1,6 +1,6 @@
 export { default as Header } from "./Header";
-export { default as Login } from "./Login";
-export { default as Signup } from "./Signup";
+export { default as LoginPage } from "./LoginPage";
+export { default as RegisterPage } from "./RegisterPage";
 export { default as MainContainer } from "./MainContainer";
 export { default as CreateContainer } from "./CreateContainer";
 export { default as HomeContainer } from "./HomeContainer";

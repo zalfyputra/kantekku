@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { CreateContainer, Header, MainContainer, Login, Signup } from "./components";
+import { CreateContainer, Header, MainContainer, LoginPage, RegisterPage } from "./components";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
@@ -31,8 +31,8 @@ const App = () => {
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
         */
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/home" element={<MainContainer />} />
             <Route path="/addMenu" element={<CreateContainer />} />
           </Routes>

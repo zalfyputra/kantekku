@@ -19,7 +19,6 @@ const Header = () => {
 
   const [isMenu, setIsMenu] = useState(false);
 
-  /* Ganti aja jadi authentication nya MongoDB */
   const login = async () => {
     if (!user) {
       const {
