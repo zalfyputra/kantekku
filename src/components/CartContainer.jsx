@@ -8,11 +8,17 @@ import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
   const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
+  const Navigate = useNavigate();
+
+  const confirmButton = () => {
+    Navigate("/confirm");
+  }
 
   const showCart = () => {
     dispatch({
@@ -91,6 +97,7 @@ const CartContainer = () => {
                 whileTap={{ scale: 0.8 }}
                 type="button"
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+                onClick = {confirmButton}
               >
                 Check Out
               </motion.button>

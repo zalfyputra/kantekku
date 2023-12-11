@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 import {
   MdFastfood,
@@ -33,6 +34,11 @@ const CreateContainer = () => {
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [{ foodItems }, dispatch] = useStateValue();
+  const Navigate = useNavigate();
+
+  const cancelButton = () => {
+    Navigate("/home");
+  }
 
   const uploadImage = (e) => {
     setIsLoading(true);
@@ -280,8 +286,16 @@ const CreateContainer = () => {
             Save
           </button>
         </div>
+        <button
+            type="button"
+            className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-red-600 hover:bg-ref-600 px-12 py-2 rounded-lg text-lg text-white font-semibold"
+            onClick={cancelButton}
+          >
+            Cancel
+          </button>
       </div>
     </div>
+    
   );
 };
 

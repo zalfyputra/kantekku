@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import CoverBg from "../img/kantek-1.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const RegisterPage = () => {
+    const [role, setRole] = useState("");
+
+    const registerHandle = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+      
+        try {
+            const response = await axios.post('http://localhost:3000/auth/register', data);
+            if (response.data.success) {
+                // handle successful registration
+                console.log('User created successfully');
+            } else {
+                // handle error
+                console.log(response.data.message);
+            }
+        } catch (error) {
+            console.error('Error during registration', error);
+        }
+    };
+
     return(
         <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
             <div className="bg-gray-800 flex flex-col justify-center">
@@ -20,16 +43,28 @@ const RegisterPage = () => {
                         <label>Password</label>
                         <input className="rounded-lg bg-gray-100 text-gray-800 mt-2 p-2 focus:outline-none" type="password" />
                     </div>
+                    {role === "Merchant" && (
+                        <>
+                        <div className="flex flex-col text-gray-300 py-3">
+                            <label>Store name</label>
+                            <input className="rounded-lg bg-gray-100 text-gray-800 mt-2 p-2 focus:outline-none" type="text" />
+                        </div>
+                        <div className="flex flex-col text-gray-300 py-3">
+                            <label>Phone number</label>
+                            <input className="rounded-lg bg-gray-100 text-gray-800 mt-2 p-2 focus:outline-none" type="text" />
+                        </div>
+                        </>
+                    )}
                     <div className="flex justify-center text-gray-300 py-3">
                         <p>I'm signing up as:</p>
                     </div>
                     <div className="flex items-center justify-center text-gray-500 pt-1 pb-3">
-                        <input type="radio" name="account-type" className="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300" defaultChecked/>
+                        <input type="radio" name="account-type" className="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300" defaultChecked onChange={() => setRole("Student")}/>
                         <label for="default-radio-1" className="ml-2 font-medium text-gray-300">Student</label>
-                        <input type="radio" name="account-type" className="ml-5 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"/>
+                        <input type="radio" name="account-type" className="ml-5 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300" onChange={() => setRole("Merchant")}/>
                         <label for="default-radio-2" className="ml-2 font-medium text-gray-300">Merchant</label>
                     </div>
-                    <Link to="/home"><button className="w-full my-5 py-2 bg-amber-600 shadow-lg hover:bg-amber-600 text-white font-semibold rounded">Sign up</button></Link>
+                    <button className="w-full my-5 py-2 bg-amber-600 shadow-lg hover:bg-amber-600 text-white font-semibold rounded" onClick={registerHandle}>Sign up</button>
                     <div className="flex justify-center text-gray-200 py-2">
                         <p>Already have an account?&nbsp;</p><Link to="/" className="text-amber-600"> Log in</Link>
                     </div>

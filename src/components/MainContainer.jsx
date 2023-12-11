@@ -12,6 +12,7 @@ import CartContainer from "./CartContainer";
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {}, [scrollValue, cartShow]);
 
@@ -21,7 +22,6 @@ const MainContainer = () => {
       <Header />
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
           <div className="w-full h-auto flex flex-col items-center justify-center ">
-            <HomeContainer />
             <section className="w-full my-6">
               <div className="w-full flex items-center justify-between">
                 <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
