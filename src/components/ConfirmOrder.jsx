@@ -1,27 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
-import HomeContainer from "./HomeContainer";
-import { motion } from "framer-motion";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import RowContainer from "./RowContainer";
-import { useStateValue } from "../context/StateProvider";
 import Header from "./Header";
-import { AnimatePresence } from "framer-motion";
-import MenuContainer from "./MenuContainer";
-import CartContainer from "./CartContainer";
+import FoodHeart from "../img/food-heart.png";
 
 const ConfirmOrder = () => {
     return (
-        <div className="w-screen h-screen flex flex-col bg-primary">
+        <div className="w-screen h-screen flex flex-col bg-white">
         <Header />
             <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
-            <div className="w-full h-auto flex flex-col items-center justify-center mt-20">
-                <p className="text-[2.5rem] lg:text-[4.5rem] text-center font-bold tracking-wide text-headingColor">
-                Thank You<br/>
-                <span className="text-amber-500 text-[2rem] lg:text-[2rem]">
-                Order Successful
-                </span>
-                </p>
-            </div>
+                <div className="w-full h-auto flex flex-col items-center justify-center ">
+                    <section className="w-full my-6">
+                        <div className="flex flex-col items-center justify-center">
+                            <img src={FoodHeart} className="h-340" />
+                            <p className="text-3xl lg:text-5xl text-center font-bold tracking-wide text-headingColor">
+                            Thank You For Your Purchase<br/>
+                            <span className="text-amber-500 text-xl lg:text-2xl font-bold">
+                            Your Order is Successful!
+                            </span>
+                            </p>
+                        </div>
+                    </section>
+                </div>
             </main>
         </div>
     );

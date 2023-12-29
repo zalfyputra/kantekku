@@ -9,21 +9,19 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 const LoginPage = () => {
-    //const [email, setEmail] = useState('');
-    //const [password, setPassword] = useState('');
-    //const [message, setMessage] = useState('');
-    //const [accessToken, setAccessToken] = useState('');
-    //const [refreshToken, setRefreshToken] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const [accessToken, setAccessToken] = useState('');
+    const [refreshToken, setRefreshToken] = useState('');
     const Navigate = useNavigate();
     const [{ user }, dispatch] = useStateValue();
-    const [isMenu, setIsMenu] = useState(false);
 
     const [value, setValue] = useState('');
 
-    /*
     const login = async () => {
         try {
-          const response = await fetch('http://your-backend-api/login', {
+          const response = await fetch('http://localhost:3000/auth/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -40,12 +38,11 @@ const LoginPage = () => {
           } else {
             setMessage(result.message);
           }
-          navigate('/home');
+          Navigate('/home');
         } catch (error) {
           console.error('Login error:', error);
         }
       };
-    */
    
     const googleLogin = async () => {
       signInWithPopup(firebaseAuth, provider).then((data)=>{
@@ -63,16 +60,16 @@ const LoginPage = () => {
             <div className="hidden sm:block">
                 <img className="w-full h-screen object-cover" src={CoverBg} alt="login-bg" />
             </div>
-            <div className="bg-gray-100 flex flex-col justify-center">
+            <div className="bg-white flex flex-col justify-center">
                 <form className="max-w-[480px] w-full mx-auto p-8 px-8 justify-center">
                 <h2 className="text-4xl text-black font-bold text-center py-5">Login</h2>
                     <div className="flex flex-col text-gray-500 py-3">
                         <label>Email</label>
-                        <input className="rounded-lg bg-gray-100 mt-2 p-2 outline outline-1 outline-gray-300 focus:outline-2" type="text" />
+                        <input className="rounded-lg bg-white mt-2 p-2 outline outline-1 outline-gray-300 focus:outline-2" type="text" />
                     </div>
                     <div className="flex flex-col text-gray-500 py-3">
                         <label>Password</label>
-                        <input className="rounded-lg bg-gray-100 mt-2 p-2 outline outline-1 outline-gray-300 focus:outline-2" type="password" />
+                        <input className="rounded-lg bg-white mt-2 p-2 outline outline-1 outline-gray-300 focus:outline-2" type="password" />
                     </div>
                     <div className="flex justify-between text-gray-500 py-3">
                         <p className="flex items-center"><input className="mr-2" type="checkbox"/> Remember me</p>
@@ -88,7 +85,7 @@ const LoginPage = () => {
                     </div>
                     {value ? Navigate("/home"):
                       (
-                      <button className="w-full my-5 py-2 bg-gray-100 shadow-lg hover:bg-gray-200 text-white font-semibold rounded-lg" onClick={googleLogin}>
+                      <button className="w-full my-5 py-2 bg-white shadow-lg hover:bg-gray-100 text-white font-semibold rounded-lg" onClick={googleLogin}>
                           <div className="flex justify-center text-gray-600 py-2">
                               <FcGoogle size={25}/>
                               <p className="ml-2"> Continue with Google</p>

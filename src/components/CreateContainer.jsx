@@ -156,7 +156,7 @@ const CreateContainer = () => {
 
   return (
     <div className="w-full min-h-screen flex bg-gray-800 items-center justify-center">
-      <div className="w-[90%] md:w-[50%] border bg-gray-100 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
+      <div className="w-[90%] md:w-[50%] border bg-white border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
         {fields && (
           <motion.p
             initial={{ opacity: 0 }}
@@ -172,7 +172,7 @@ const CreateContainer = () => {
           </motion.p>
         )}
 
-        <div className="w-full py-2 bg-gray-100 border-b border-gray-300 flex items-center gap-2">
+        <div className="w-full py-2 bg-white border-b border-gray-300 flex items-center gap-2">
           <MdFastfood className="text-xl text-gray-700" />
           <input
             type="text"
@@ -187,7 +187,7 @@ const CreateContainer = () => {
         <div className="w-full">
           <select
             onChange={(e) => setCategory(e.target.value)}
-            className="outline-none w-full text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+            className="outline-none w-full text-base border-b-2 border-gray-100 p-2 rounded-md cursor-pointer"
           >
             <option value="other" className="bg-white">
               Select Category

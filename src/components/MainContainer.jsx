@@ -18,7 +18,7 @@ const MainContainer = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-    <div className="w-screen h-auto flex flex-col bg-primary">
+    <div className="w-screen h-auto flex flex-col bg-white">
       <Header />
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
           <div className="w-full h-auto flex flex-col items-center justify-center ">
